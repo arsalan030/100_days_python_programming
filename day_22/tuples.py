@@ -148,6 +148,275 @@ test_list = [[(4, 5), (7, 8)], [(10, 13), (18, 17)]]
 all_coulms = [tuple(i[0] for i in val )for  idx ,val in enumerate(test_list)] +[tuple(i[1] for i in val )for  idx ,val in enumerate(test_list)]
 print(all_coulms)
 
+# Python3 code to demonstrate working of 
+# Sort Tuples by Total digits
+# Using sorted() + lambda + sum() + len()
+
+# initializing list
+test_list = [(3, 4, 6, 723), (1, 2), (12345,), (134, 234, 34)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# performing sort, lambda function provides logic
+res = sorted(test_list, key = lambda tup : sum([len(str(ele)) for ele in tup ]))
+
+# printing result 
+print("Sorted tuples : " + str(res))
+
+
+
+
+# Python3 code to demonstrate working of 
+# Convert Tuple Matrix to Tuple List
+# Using list comprehension + zip()
+
+# initializing list
+test_list = [[(4, 5), (7, 8)], [(10, 13), (18, 17)], [(0, 4), (10, 1)]]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# flattening 
+temp = [ele for sub in test_list for ele in sub]
+
+print(temp)
+
+# joining to form column pairs
+res = list(zip(*temp))
+
+# printing result 
+print("The converted tuple list : " + str(res))
+
+
+# Python3 code to demonstrate working of 
+# Sort by Frequency of second element in Tuple List
+# Using sorted() + loop + defaultdict() + lambda
+from collections import defaultdict
+
+# initializing list
+test_list = [(6, 5), (2, 7), (2, 5), (8, 7), (9, 8), (3, 7)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# constructing mapping
+freq_map = defaultdict(int)
+for idx, val in test_list:
+	freq_map[val] += 1
+
+# performing sort of result 
+res = sorted(test_list, key = lambda ele: freq_map[ele[1]], reverse = True)
+
+# printing results
+print("Sorted List of tuples : " + str(res))
+
+
+
+test_list = [('Gfg', 10), ('best', 3), ('CS', 8), ('Geeks', 7)]
+ord_list = ['Geeks', 'best', 'CS', 'Gfg'] 
+
+#ord_list = iter(ord_list)
+
+test_dict = {k:v for k,v in test_list}
+new_list = list(map(lambda ele: (ele,test_dict[ele]),ord_list))
+
+print(new_list)
+
+test_dict = {k:v for k,v in test_list}
+new_list = [(k,test_dict[k])for k in ord_list]
+print(new_list)
+
+
+# Python3 code to demonstrate working of 
+# Order Tuples by List
+# Using setdefault() + sorted() + lambda
+
+# initializing list
+test_list = [('Gfg', 3), ('best', 9), ('CS', 10), ('Geeks', 2)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing order list 
+ord_list = ['Geeks', 'best', 'CS', 'Gfg']
+
+# Order Tuples by List
+# Using setdefault() + sorted() + lambda
+temp = dict()
+for key, ele in enumerate(ord_list):
+	temp.setdefault(ele, []).append(key)	 
+res = sorted(test_list, key = lambda ele: temp[ele[0]]) 
+
+# printing result 
+print("The ordered tuple list : " + str(res)) 
+
+
+# Python3 code to demonstrate working of 
+# Filter Tuples by Kth element from List
+# Using list comprehension
+
+# initializing list
+test_list = [("GFg", 5, 9), ("is", 4, 3), ("best", 10, 29)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing check_list
+check_list = [4, 2, 8, 10]
+
+# initializing K 
+K = 1
+
+# checking for presence on Kth element in list 
+# one liner 
+res = [sub for sub in test_list if sub[K] in check_list]
+
+# printing result 
+print("The filtered tuples : " + str(res))
+# Python3 code to demonstrate working of 
+# Filter Tuples by Kth element from List
+# Using list comprehension
+
+# initializing list
+test_list = [("GFg", 5, 9), ("is", 4, 3), ("best", 10, 29)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing check_list
+check_list = [4, 2, 8, 10]
+
+# initializing K 
+K = 1
+
+# checking for presence on Kth element in list 
+# one liner 
+res = [sub for sub in test_list if sub[K] in check_list]
+
+# printing result 
+print("The filtered tuples : " + str(res))
+
+
+'''
+Python  Closest Pair to Kth index element in Tuple
+'''
+
+test_list = [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)] 
+tup = (17, 23)
+
+# Python3 code to demonstrate working of 
+# Closest Pair to Kth index element in Tuple
+# Using enumerate() + loop
+
+# initializing list
+test_list = [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+tup = (17, 23)
+
+# initializing K 
+K = 1
+
+# Closest Pair to Kth index element in Tuple
+# Using enumerate() + loop
+min_dif, res = 999999999, None
+for idx, val in enumerate(test_list):
+    dif = abs(tup[K - 1] - val[K - 1])
+    if dif < min_dif:  # corrected here
+        min_dif, res = dif, idx
+
+# printing result 
+print("The nearest tuple to Kth index element is : " + str(test_list[res]))
+
+
+
+# Python3 code to demonstrate working of 
+# Closest Pair to Kth index element in Tuple
+# Using min() + lambda
+
+# initializing list
+test_list = [(3, 4), (78, 76), (2, 3), (9, 8), (19, 23)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# initializing tuple
+tup = (17, 23)
+
+# initializing K 
+K = 1
+
+# Closest Pair to Kth index element in Tuple
+# Using min() + lambda
+res = min(range(len(test_list)), key = lambda sub: abs(test_list[sub][K - 1] - tup[K - 1]))
+
+# printing result 
+print("The nearest tuple to Kth index element is : " + str(res)) 
+
+
+# Python3 code to demonstrate working of 
+# Tuple List intersection [ Order irrespective ]
+# Using sorted() + set() + & operator + list comprehension
+
+# initializing lists
+test_list1 = [(3, 4), (5, 6), (9, 10), (4, 5)]
+test_list2 = [(5, 4), (3, 4), (6, 5), (9, 11)]
+
+# printing original list
+print("The original list 1 is : " + str(test_list1))
+print("The original list 2 is : " + str(test_list2))
+
+# Using sorted() + set() + & operator + list comprehension
+# Using & operator to intersect, sorting before performing intersection
+res = set([tuple(sorted(ele)) for ele in test_list1]) & set([tuple(sorted(ele)) for ele in test_list2])
+
+# printing result 
+
+print("List after intersection : " + str(res)) 
+
+
+
+# Python3 code to demonstrate working of
+# Unique Tuple Frequency [ Order Irrespective ]
+# Using tuple() + list comprehension + sorted() + len()
+
+# initializing lists
+test_list = [(3, 4), (1, 2), (4, 3), (5, 6)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# Using tuple() + list comprehension + sorted() + len()
+# Size computed after conversion to set
+res = len(list(set(tuple(sorted(sub)) for sub in test_list)))
+
+# printing result
+print("Unique tuples Frequency : " + str(res))
+
+# Python3 code to demonstrate working of
+# Unique Tuple Frequency [ Order Irrespective ]
+# Using map() + sorted() + tuple() + set() + len()
+
+# initializing lists
+test_list = [(3, 4), (1, 2), (4, 3), (5, 6)]
+
+# printing original list
+print("The original list is : " + str(test_list))
+
+# Using map() + sorted() + tuple() + set() + len()
+# inner map used to perform sort and outer sort to
+# convert again in tuple format
+res = len(list(set(map(tuple, map(sorted, test_list)))))
+
+# printing result
+print("Unique tuples Frequency : " + str(res))
+
+
+
 
 
 
